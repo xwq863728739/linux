@@ -1,12 +1,1 @@
-<<<<<<< HEAD
-ssello git
-=======
-xxxxello git!!!
->a
-
-
-s
-
-
-sd
-444444444444>>>>>> e5c15a52183e91035fa1037aa8e3e159eac44544
+this is my world
