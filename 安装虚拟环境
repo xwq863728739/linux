@@ -1,0 +1,39 @@
+虚拟环境
+为什么要装虚拟环境？
+由于开发环境的不同，会造成很多版本差异，为了方便管理和使用版本，所以，我们使用虚拟环境
+为什么要用pip3安装？pip默认的安装路径是python2.7，pip3默认安装的路径是python3.5.2
+
+安装pip3
+sudo apt install python3-pip
+安装pip
+sudo apt install python-pip
+
+如果提示版本需要升级，运行下面命令
+pip3 install --upgrade pip
+
+安装虚拟环境
+sudo pip3 install virtualenv
+安装下面软件的时候
+sudo pip3 install virtualenvwrapper
+
+安装过程中出现的问题
+1.pip不是最新版，就造成我们的包默认装到python2.7，所以修改后找不到．
+2.对修改~/.bashrc还没有弄清楚是怎么回？修改环境变量一定要注意,.bashrc是在home下，如果打开.bashrc文件是空的，说明打开的文件不对（路径错误）
+
+sudo vi ~/.bashrc   # 注意文件的路径是当前home下
+这两行加到最后
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+在这里不成功，需要修改/usr/local/bin/virtualenvwrapper.sh一下文件　
+if["$VIRTUALENVWRAPPER_PYTHON"=""]then
+VIRTUALENVWRAPPER_PYTHON="$(command　\which　python)"
+fi
+在下面加上
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3  
+source ~/.bashrc # 激活文件，使其立马生效
+新建虚拟环境
+python3 :  mkvirtualenv -p python3  xxxxx
+退出虚拟环境：deactivate
+进入虚拟环境：workon   虚拟环境名称
+查看所有虚拟环境： workon   2次TAB键，能把我们建的虚拟环境全部列出来
+删除虚拟环境：rmvirtualenv  虚拟环境名称（要先退出当前的虚拟环境）
